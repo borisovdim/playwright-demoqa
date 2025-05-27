@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Check Box', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('https://demoqa.com/checkbox');
+    await page.goto('/checkbox');
   });
 
   test('Message for selected check boxes', async ({ page }) => {

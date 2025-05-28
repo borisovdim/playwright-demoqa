@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe.only('Broken Links - Images', () => {
+test.describe('Broken Links - Images', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/broken');
   });

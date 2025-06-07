@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../tests/fixtures/adBlocker';
 import { faker } from '@faker-js/faker';
 let data;
 

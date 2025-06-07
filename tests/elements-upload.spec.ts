@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { test, expect } from '../tests/fixtures/adBlocker';
 import { join } from 'path';
 
 test.describe('Upload', () => {

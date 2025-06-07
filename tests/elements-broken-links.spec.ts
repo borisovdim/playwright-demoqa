@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../tests/fixtures/adBlocker';
 
 test.describe('Broken Links - Images', () => {
   test.beforeEach(async ({ page }) => {

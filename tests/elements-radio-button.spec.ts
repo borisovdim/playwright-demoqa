@@ -1,4 +1,5 @@
-import { expect, Locator, test } from '@playwright/test';
+import { test, expect, Locator } from '../tests/fixtures/adBlocker';
+
 let yesRadioBtn: Locator;
 let impressiveRadioBtn: Locator;
 let noRadioBtn: Locator;

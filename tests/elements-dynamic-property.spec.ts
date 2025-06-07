@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { test, expect } from '../tests/fixtures/adBlocker';
 
 test.describe('Dynamic properties', () => {
   test.beforeEach(async ({ page }) => {

@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../tests/fixtures/adBlocker';
 
 test.describe('Buttons', () => {
   test.beforeEach(async ({ page }) => {

@@ -101,7 +101,8 @@ test.describe('Practice Form', () => {
   });
 });
 
-const dataFormatter = (date: Date, monthFormat: string): string => {
+type MonthFormat = 'short' | 'long';
+const dataFormatter = (date: Date, monthFormat: MonthFormat): string => {
   const day = date.getDate().toString().padStart(2, '0');
   const month = date.toLocaleString('en-GB', { month: monthFormat });
   const year = date.getFullYear();

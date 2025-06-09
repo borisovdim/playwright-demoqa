@@ -1,6 +1,6 @@
 import { test, expect } from '../tests/fixtures/adBlocker';
 
-test.describe('Alerts', () => {
+test.describe('Frames', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/frames');
   });

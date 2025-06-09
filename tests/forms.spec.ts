@@ -4,7 +4,7 @@ import { join } from 'path';
 
 test.describe('Practice Form', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('automation-practice-form');
+    await page.goto('/automation-practice-form');
   });
 
   test('Required fields', async ({ page }) => {

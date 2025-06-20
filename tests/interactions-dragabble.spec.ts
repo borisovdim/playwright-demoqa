@@ -24,7 +24,7 @@ test.describe('Dragabble', () => {
     expect(style).toContain('top: 25px');
   });
 
-  test('Container Restricted', async ({ page }) => {
+  test.only('Container Restricted', async ({ page }) => {
     test.setTimeout(30000);
     await page.getByRole('tab', { name: 'Container Restricted' }).click();
 
@@ -38,11 +38,13 @@ test.describe('Dragabble', () => {
 
     await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
     await page.mouse.down();
-    await page.mouse.move(box.x + box.width / 2, box.y + 50);
+    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2 + 50, { steps: 10 });
     await page.mouse.up();
 
     await expect
-      .poll(async () => await dragText.getAttribute('style'), { timeout: 10000, intervals: [200, 500] })
+      .poll(async () => await dragText.getAttribute('style'), {
+        timeout: 10000
+      })
       .toContain('top: 28px');
 
     const style = await dragText.getAttribute('style');

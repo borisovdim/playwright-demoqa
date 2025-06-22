@@ -24,31 +24,20 @@ test.describe('Dragabble', () => {
     expect(style).toContain('top: 25px');
   });
 
-  test.only('Container Restricted', async ({ page }) => {
-    test.setTimeout(30000);
+  test('Container Restricted', async ({ page }) => {
     await page.getByRole('tab', { name: 'Container Restricted' }).click();
 
     const parent = page.locator('.draggable.m-3');
     const dragText = parent.locator('.ui-draggable');
 
-    const box = await dragText.boundingBox();
-    if (!box) throw new Error('box not found');
-
     await parent.scrollIntoViewIfNeeded();
 
-    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
-    await page.mouse.down();
-    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2 + 50, { steps: 10 });
-    await page.mouse.up();
-
-    await expect
-      .poll(async () => await dragText.getAttribute('style'), {
-        timeout: 10000
-      })
-      .toContain('top: 28px');
+    await dragText.dragTo(parent, {
+      targetPosition: { x: 0, y: 40 },
+    });
 
     const style = await dragText.getAttribute('style');
     expect(style).toContain('left: 0px');
-    expect(style).toContain('top: 28px');
+    expect(style).toContain('top: 21px');
   });
 });

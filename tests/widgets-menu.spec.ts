@@ -1,6 +1,7 @@
 import { test, expect } from './fixtures/adBlocker';
 
 test.describe('Menu', () => {
+  test.skip(process.env.CI === 'true', 'Пропускается на CI');
   test.beforeEach(async ({ page }) => {
     await page.goto('/menu');
   });

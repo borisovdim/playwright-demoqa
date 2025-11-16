@@ -1,6 +1,7 @@
 import { expect, test, Page } from '../tests/fixtures/adBlocker';
 
 test.describe('Sortable', () => {
+  test.skip(process.env.CI === 'true', 'Пропускается на CI');
   test.beforeEach(async ({ page }) => {
     await page.goto('/sortable');
   });

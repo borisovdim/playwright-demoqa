@@ -1,7 +1,6 @@
 import { test, expect } from './fixtures/adBlocker';
 
 test.describe('Menu', () => {
-  test.skip(process.env.CI === 'true', 'Пропускается на CI');
   test.beforeEach(async ({ page }) => {
     await page.goto('/menu');
   });
@@ -15,6 +14,6 @@ test.describe('Menu', () => {
     await level_2.hover();
     await level_3.hover();
 
-    await expect(level_3).toHaveScreenshot('menu-level-3.png');
+    await expect(level_3).toHaveScreenshot();
   });
 });

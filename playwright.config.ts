@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import os from 'os';
 
 /**
  * Read environment variables from file.
@@ -33,7 +34,7 @@ export default defineConfig({
   },
     expect: {
     toHaveScreenshot: {
-      pathTemplate: '{testDir}/screenshots/{testFilePath}-{projectName}{ext}',
+      pathTemplate: `{testDir}/screenshots/{testFilePath}-{projectName}-${os.platform()}{ext}`,
     }
   },
 

@@ -1,6 +1,6 @@
-import { test, expect, Locator } from './fixtures/adBlocker';
+import { test, expect, Locator, Page } from './fixtures/adBlocker';
 
-let slider, sliderValue, tooltip: Locator;
+let slider: Locator, sliderValue: Locator, tooltip: Locator;
 
 test.describe('Slider', () => {
   test.beforeEach(async ({ page }) => {
@@ -36,10 +36,13 @@ test.describe('Slider', () => {
     }, value);
   };
 
-  const setSliderValueByMouseEvent = async ({ page }, targetValue: number) => {
-    const sliderElement = await slider.boundingBox();
+  const setSliderValueByMouseEvent = async ({ page }: { page: Page }, targetValue: number) => {
     const min = 0;
     const max = 100;
+    const sliderElement = await slider.boundingBox();
+    if (!sliderElement) {
+      throw new Error('Slider was not found');
+    }
 
     const ratio = (targetValue - min) / (max - min);
     const x = sliderElement.x + sliderElement.width * ratio;

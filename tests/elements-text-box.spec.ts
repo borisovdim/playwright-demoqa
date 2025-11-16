@@ -1,6 +1,14 @@
 import { test, expect } from '../tests/fixtures/adBlocker';
 import { faker } from '@faker-js/faker';
-let data;
+
+interface UserData  {
+  userName: string
+  userEmail: string;
+  currentAddress: string;
+  permanentAddress: string;
+}
+
+let data!: UserData;
 
 test.describe('Text Box', () => {
   test.beforeEach(async ({ page }) => {

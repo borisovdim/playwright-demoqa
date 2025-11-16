@@ -1,4 +1,4 @@
-import { expect, test } from '../tests/fixtures/adBlocker';
+import { expect, test, Page } from '../tests/fixtures/adBlocker';
 
 test.describe('Sortable', () => {
   test.beforeEach(async ({ page }) => {
@@ -23,7 +23,7 @@ test.describe('Sortable', () => {
     }
   });
 
-  const dragToItem = async ({ page }, element: string) => {
+  const dragToItem = async ({ page }: {page: Page}, element: string) => {
     const panel = page.locator('#demo-tabpane-list');
     const source = panel.locator('.list-group-item', { hasText: element });
     const target = panel.locator('.list-group-item', { hasText: 'Six' });

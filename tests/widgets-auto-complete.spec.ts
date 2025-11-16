@@ -1,4 +1,4 @@
-import { test, expect, Locator } from './fixtures/adBlocker';
+import { test, expect, Locator, Page } from './fixtures/adBlocker';
 
 test.describe('Auto Complete', () => {
   test.beforeEach(async ({ page }) => {
@@ -31,7 +31,7 @@ test.describe('Auto Complete', () => {
     }
   });
 
-  const fillInput = async ({ page }, color: string, inputSelector: Locator) => {
+  const fillInput = async ({ page }: { page: Page }, color: string, inputSelector: Locator) => {
     await inputSelector.click();
     await inputSelector.pressSequentially(color);
     await page.waitForTimeout(100);
